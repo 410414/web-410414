@@ -1,16 +1,27 @@
 <html>
-    <head>
-        <title>HTML標籤簡介(二)</title>
-    </head>
-    <body>
-        <!--檔案路徑:絕對路徑、相對路徑
-        絕對路徑:檔案在電腦的位置 C:/.....
-        相對位置:相對於目前檔案的相對路徑
-        -->
-        <img src="pic/smile.png" width="288px" alt="替代文字" title="標題">
-        <hr>
-        <a href="https://ww.google.com/" target="_blank">外部超連結</a>
-        <a id="cat"></a><!--錯點-->
-        <a bref="#top">內部超連結</a>
-    </body>
+<head>
+    <title>HTML標籤簡介(二)</title>
+</head>
+<body>
+    <!--檔案路徑:絕對路徑、相對路徑
+       絕對路徑:檔案在電腦的位置 C:/.....
+       相對位置:相對於目前檔案的相對路徑
+    -->
+    <img src="pic/smile.png" width="288px" alt="替代文字" title="標題">
+    <hr>
+    <a href="https://ww.google.com/" target="_blank">外部超連結</a>
+    <br>
+    <a id="cat"></a><!--錯點-->
+    <a href="#cat">內部超連結(書籤)</a>
+    <br>
+    <a href="0915.html">內部超連結(網頁)</a>
+    <hr>
+    <!--tr:table row ; td: table deta-cell -->
+    <table border="s" cellspecing="0">
+        <tr> <td>1</td> <td colspan="2">2-3</td > </tr>
+        <tr> <td rowspan="2">4<br>7<td> <td>5</td> <td>6</td > </tr>
+        <tr> <td>8</td> <td>9</td ></tr>
+
+        </table>
+</body>
 </html>
