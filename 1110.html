@@ -1,16 +1,44 @@
 <html>
 <head>
-    <title>JS簡介</title>
+    <title>JS輸出與輸入</title>
     <script>
     /* JS多行註解 */
     //JS 單行註解
-        function hello() {
-            console.log("abcdef");
-            alert("你好!");
-        }
+    /*內建功能:
+            console.log("開發人員才看的到的工具");
+            alert("訊息方塊, 不回傳");
+            prompt ("問問題, 確定回傳字串, 取消回傳null");('12')
+            comfirm ("確認用, 確定回傳true, 取消回傳false");
+
+            perseInt("將字串變成整數, 不是字串的話回傳NAN");
+    */      
+            function hello() {
+               var n1=document.getElementById("n1");
+               var n1=document.getElementById("n2");
+               var n1=document.getElementById("n3");
+               var ans=document.getElementById("ans");
+              
+               if(isNaN(n1)) (
+                   n1=0;
+               )
+               n2=isNaN(n2)? 0 : n2;
+
+               n3.value=n1+n2;
+               ans.innerHTML=`答案是$(n1+n2)`;
+
+    }
     </script>
 </head>
 <body>
-<bottle onclick="hello();">按我</bottle>
+    <input type="text" placeordervalue="輸入文字用" value="文字內容"><br>
+    <input type="password" placeholde="輸入密碼用"><br>
+    <input typr="number" placeholder="數字" min=0 max=20 atep=2><br>
+    <input type="date" value="2025-11-10"><!-- value格式:YYYY-MM-DD --><br>
+    <input type="datetime-local" value="2025-11-10T09:20"><!-- value格式:YYYY-MM-DD --><br>
+    <input type="color" value="#0000FF">
+    <hr>
+    <input type="number" id="n1"> + <input type="number" id="n2">
+    <botton onclick="sum();">=</botton><input type="number" id="n3">
+    <div id="ans"></div>
 </body>
 </html>
