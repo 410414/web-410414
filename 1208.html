@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>1208-人物移動</title>
+    <style>
+        #map {
+            width:800px;
+            height:800px;
+            background: url("pic/grass.jpg");
+            background-size: 30%;
+            /*background-repeat: repeat;*/
+            animation: bg_move is linear infinite;
+            position: relative;
+        }
+        @keyframes bg_move {
+            0% { background-position: 0% 0%; }
+            30% { background-position: 5px 0%; }
+            100% { background-position: 0% 0%; }
+        }
+        #role {
+            width: 72px;
+            height: 48px;
+            background-image: url("pic/sprite.png");
+            border: 1px solid red;
+            background-position: -144px -288px;
+            animation: walking 0.7s steps(3) infinite;
+            position: absolute;
+            left: 376px;
+            top: 360x;
+            /*border: 1px solid red;*/
+        }
+        @keyframes walking {
+            0% { background-position-x: -144px; }
+            100% { background-position-x: -288px; }
+        }
+    </style>
+    <script>
+        function mykeydown() {
+            event.preventDefault();
+            var role=document.getElementById("role")
+            if(event.key=="ArrowUp") {
+                role.style.backgroundPositionY="-288px";
+                if(role.posY < 728) role.posY++;
+            } else if(event.key=="Arriwleft") {
+                role.style.backgroundPositionY="-360px";
+                if(role.posX > 0) role.posX--;
+            } else if(event.key=="ArrowRight") {
+                role.style.backgroundPositionY="-432px";
+                if(role.posX < 725) role.posX++;
+            } else if(event.key=="ArrowUp") {
+                role.style.backgroundPositionY="-504px";
+                if(role.posY > 0) role.posY--;
+            }
+            role.style.left=role.postX="px";
+            role.style.top=role.posY+"px";
+        }
+        function page_init() {
+            var role=document.getElementById("role");
+            role.postX=376;
+            role.postY=364;
+        }
+    </script>
+</head>
+<body onkeydown="mykeydown();">
+    <div id="map">
+        <div id="role"></div>
+    </div>
+</body>
+</html>
