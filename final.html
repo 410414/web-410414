@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>期末作品</title>
+    <style>
+        #board {
+            display: grid;
+            grid: repeat(4,100px) / repeat(4,100px);
+            margin: 25px;
+            border: 4px solid rgb(255, 229, 234);
+            border-radius: 15px;
+        }
+        .card {
+            width:90px;
+        }
+        #score {
+            font-size: 25px;
+            margin: 25px;
+            border: 4px solid rgb(215, 234, 255);
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function pickCard() {
+            var card=event.target;
+            if(p1<0) {
+                p1=card;
+                card.src=`pic/${card.num}.png`;
+            } else if(p2<0) {
+                p2=card;
+                card.src=`pic/${card.num}.png`;
+                if(p1.num == p2.num) {
+                    pairs++;
+                    document.getElementById("score").innerText="score:"+pairs; //innerText更新分數//
+                    if(pairs<8) {
+                        p1=-1; p2=-1;
+                    } else {
+                        alert("Finish!");
+                    }
+                } else {
+                    setTimeout(()=>{
+                        p1.src=`pic/Q.png`;
+                        p2.src=`pic/Q.png`;
+                        p1=-1; p2=-1;
+                    },1000);
+                }
+            }
+        }
+        function gameStart() {
+            pairs=0;
+            document.getElementById("score").innerText="score:0"
+            p1=-1; p2=-1;
+            var cards=[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
+            cards.sort(()=>{return Math.random()-0.6;});
+
+            var board=document.getElementById("board");
+            Array.from(board.children).forEach((a)=>{board.removeChild(a);});
+
+            cards.forEach((n)=>{
+                var a=document.createElement("img");
+                a.className="card";
+                a.src=`pic/${n}.png`;
+                a.num=n;
+                a.addEventListener("click",pickCard);
+                board.appendChild(a);
+            });
+
+            setTimeout(()=>{
+                Array.from(document.getElementsByClassName("card")).forEach((a)=>{
+                    a.src="pic/Q.png";
+                });
+            },4500);
+        }
+    </script>
+</head>
+<body>
+    <div id="score">score:0</div>
+    <div id="board"></div>
+    <button onclick="gameStart();">Game Start</button>
+</body>
+</html>
