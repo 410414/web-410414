@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>期末作品</title>
+    <title>11427洪千絨-期末作品</title>
     <style>
         #board {
             display: grid;
@@ -50,7 +50,7 @@
             document.getElementById("score").innerText="score:0"
             p1=-1; p2=-1;
             var cards=[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-            cards.sort(()=>{return Math.random()-0.6;});
+            cards.sort(()=>{return Math.random()-0.3;});
 
             var board=document.getElementById("board");
             Array.from(board.children).forEach((a)=>{board.removeChild(a);});
@@ -70,6 +70,7 @@
                 });
             },4500);
         }
+        
     </script>
 </head>
 <body>
